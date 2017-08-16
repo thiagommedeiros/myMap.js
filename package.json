@@ -1,0 +1,42 @@
+{
+  "name": "myMaps",
+  "version": "1.0.0",
+  "author": "Thiago M. Medeiros",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "start": "gulp",
+    "test": "./node_modules/ava/cli.js 'test/**/*.test.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagommedeiros/myMaps.git"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-exec": "^2.1.3",
+    "rollup": "^0.47.4",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.1.0",
+    "rollup-plugin-filesize": "^1.4.2",
+    "rollup-plugin-uglify": "^2.0.1"
+  },
+  "ava": {
+    "babel": {
+      "presets": [
+        "es2015",
+        "@ava/stage-4"
+      ]
+    },
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ]
+  }
+}
