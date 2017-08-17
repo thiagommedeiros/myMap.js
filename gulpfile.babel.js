@@ -1,29 +1,53 @@
 import gulp from 'gulp'
 import { exec } from 'child_process'
+import { rollup } from 'rollup'
+import babel from 'rollup-plugin-babel'
+import commonjs from 'rollup-plugin-commonjs'
+import filesize from 'rollup-plugin-filesize'
+import uglify from 'rollup-plugin-uglify'
 import browserSync from 'browser-sync'
 
-const startSync = () => {
+gulp.task('start', () =>
   browserSync.init({
     server: {
       baseDir: './',
       index: './samples/index.html'
     }
   })
-}
+)
 
-const build = () => {
-  console.info('Building files...')
-  exec('yarn build', () => {
-    browserSync.reload() })
-}
+gulp.task('build', () =>
+  rollup({
+    entry: 'src/index.js',
+    plugins: [
+      commonjs(),
+      babel({
+        babelrc: false,
+        presets: [
+          [
+            'es2015',
+            {
+              modules: false
+            }
+          ]
+        ]
+      }),
+      uglify(),
+      filesize()
+    ]
+  }).then(bundle =>
+    bundle.write({
+      format: 'umd',
+      moduleName: 'myMaps',
+      dest: 'lib/myMaps.min.js'
+    })
+  )
+)
 
-const watch = () => {
+gulp.task('watch', () =>
   gulp.watch([
     './samples/*.html',
     './src/**/*.js'
-  ], build)
-}
+  ], ['build']))
 
-gulp.task('start', startSync)
-gulp.task('watch', watch)
-gulp.task('default', ['start', 'watch'])
+gulp.task('default', ['start', 'build', 'watch'])
