@@ -1,5 +1,7 @@
-import markers from './markers'
+import create from './create'
+import createMarker from './markers/createMarker'
 
 export default {
-  markers
+  create,
+  createMarker
 }

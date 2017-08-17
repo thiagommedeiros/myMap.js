@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create Marker</title>
+    <style media="screen">
+      #map { width: 500px; height: 500px }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvJ2Yr0PO_rZiJpsVqYSbdgDHMsiV0D6g"></script>
+  <script src="../../lib/myMaps.min.js"></script>
+  <script>
+    const map = myMaps.create({
+      el: 'map',
+      zoom: 17,
+      center: {
+        lat: 29.97923508441398,
+        lng: 31.134197115898132,
+      }
+    })
+
+    myMaps.createMarker({
+      map,
+      position: {
+        lat: 29.97923508441398,
+        lng: 31.134197115898132,
+      }
+    })
+  </script>
+</html>
