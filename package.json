@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
+    "build": "gulp build",
     "start": "gulp",
     "test": "./node_modules/ava/cli.js 'test/**/*.test.js'"
   },
