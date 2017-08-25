@@ -38,8 +38,8 @@ gulp.task('build', () =>
   }).then(bundle =>
     bundle.write({
       format: 'umd',
-      moduleName: 'myMaps',
-      dest: 'lib/myMaps.min.js'
+      moduleName: 'myMap',
+      dest: 'lib/myMap.min.js'
     })
   )
 )

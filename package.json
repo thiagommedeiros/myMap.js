@@ -1,5 +1,5 @@
 {
-  "name": "myMaps",
+  "name": "myMap.js",
   "version": "1.0.0",
   "author": "Thiago M. Medeiros",
   "main": "src/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thiagommedeiros/myMaps.git"
+    "url": "git+https://github.com/thiagommedeiros/myMap.js.git"
   },
   "devDependencies": {
     "ava": "^0.22.0",
